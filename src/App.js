@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './App.css';
-import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import Customerlist from './components/Customerlist';
 import Trainings from './components/Trainings';
 import AppBar from '@mui/material/AppBar';
