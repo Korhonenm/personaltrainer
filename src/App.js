@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import Customerlist from './components/Customerlist';
 import Trainings from './components/Trainings';
+import Calendar from './components/Calendar';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -27,11 +28,13 @@ function App() {
       </AppBar>
       
       <Tabs value={value} onChange={handleChange}>
-        <Tab  label="Customerlist" />
+        <Tab label="Customerlist" />
         <Tab label="Trainings"/>
+        <Tab label="Calendar" />
       </ Tabs>
       {value=== 0 && <Customerlist />}
       {value=== 1 &&<Trainings/>}
+      {value=== 2 &&<Calendar/>}
     </div>
   );
 }
