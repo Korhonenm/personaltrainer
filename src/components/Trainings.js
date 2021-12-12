@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import'ag-grid-community/dist/styles/ag-grid.css';
 import'ag-grid-community/dist/styles/ag-theme-material.css';
 import dayjs from 'dayjs';
-import Customerlist from './Customerlist';
 
 export default function Trainings() {
     const [trainings, setTrainings] = useState([]);
@@ -32,7 +31,8 @@ export default function Trainings() {
             return dayjs(data.value).format('MM/DD/YYYY HH:mm')
         }},
         {headerName: 'Duration', field: 'duration', sortable: true, filter: true},
-        {headerName: 'Customer', field: 'customer.firstname' , sortable: true, filter: true},
+        {headerName: 'Customer first name', field: 'customer.firstname' , sortable: true, filter: true},
+        {headerName: 'Customer last name', field: 'customer.lastname' , sortable: true, filter: true},
         {headerName: "Delete", field: "id", sortable: false, filter: false, resizable: true, width:100,
             cellRendererFramework: params => {
                  return (

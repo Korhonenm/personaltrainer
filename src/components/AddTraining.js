@@ -5,6 +5,10 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import DateFnsUtils from '@date-io/date-fns';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider'
+
 
 export default function AddTraining(props){
     const [open, setOpen] = React.useState(false);
@@ -29,13 +33,21 @@ export default function AddTraining(props){
         handleClose();
     }
 
+    const [selectDate, handleDateChange] = React.useState( new Date());
+    
+    const changeDate = (date) => {
+        handleDateChange(date);
+        const formatDate = date.toISOString();
+        setTraining({...training, date: formatDate});
+    }
+
    return(
        <div>
         <Button color="primary" onClick={handleClickOpen}>
             Add Training
         </Button>
         <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>New Training</DialogTitle>
+            <DialogTitle>Add training </DialogTitle>
                 <DialogContent>
                     <TextField
                         autoFocus
@@ -47,15 +59,17 @@ export default function AddTraining(props){
                         fullWidth
                         variant="standard"
                     />
+                   
                      <TextField
                         margin="dense"
                         name="date"
-                        value={training.date}
-                        onChange={e => handleInputChange(e)}
+                        value={selectDate}
+                        onChange={date => changeDate(date)}
                         label="Date"
                         fullWidth
                         variant="standard"
                     />
+                   
                     <TextField
                         margin="dense"
                         name="duration"

@@ -73,10 +73,10 @@ export default function Customerlist() {
         {headerName: 'City', field: 'city', sortable: true, filter: true},
         {headerName: 'Email', field: 'email', sortable: true, filter: true},
         {headerName: 'Phone', field: 'phone', sortable: true, filter: true},
-        {headerName: 'Add training', field: "links", sortable: false, filter: false, resizable: true, width:200,
-        cellRendererFramework: params => {
-            const url = params.value[0].href;
-            return (<AddTraining saveTraining={saveTraining} training={params.data} /> );}},
+        {headerName: 'Add training', field: "links.0.href", sortable: false, filter: false, resizable: true, width:200,
+        cellRendererFramework: params => 
+           
+            <AddTraining link ={params.value} training ={params.data} saveTraining={saveTraining} customerId={params.value} /> },
         
         {headerName: 'Edit', field: "links", sortable: false, filter: false, resizable: true, width:100,
          cellRendererFramework:  function(params) {
